@@ -20,6 +20,8 @@ function getHtmlEntryForReagent(reagent) {
             recipeText += `${v} ${getLabelForReagentKey(r)}`;
         });
 
+        recipeText += ` = ${reagent.recipeResult} <b style="color: ${reagent.color}">${reagent.name}</b>`;
+
         return `
         <div class="entry">
             <div class="entry-name">
@@ -38,7 +40,7 @@ function getHtmlEntryForReagent(reagent) {
 
 function getLabelForReagentKey(reagentKey) {
     var reagent = reagentsMap.get(reagentKey);
-    return `<a href="./reagent?${reagent.key}">
+    return `<a href="./reagent?r=${reagent.key}">
         <b style="color: ${reagent.color}">${reagent.name}</b>
     </a>`;
 }
@@ -75,11 +77,11 @@ var reagentsArr = [
     },
     {
         key: "_rubrum", name: "Rubrum", color: "#df4646", categories: ["basic"],
-        desc: `Добывается из цветка Паравеус (Paraverus petal)`,
+        desc: `Добывается из красного цветка Параверус (Paraverus petal).`,
     },
     {
         key: "_viridis", name: "Viridis", color: "#80d149", categories: ["basic"],
-        desc: `Добывается из цветка листьев Уртики (Urtica leaf)`,
+        desc: `Добывается из цветка листьев Уртики (Urtica leaf).`,
     },
     {
         key: "_berry_poison", name: "Berry Poison", color: "#4afff6", categories: ["basic", "poison"],
@@ -87,20 +89,55 @@ var reagentsArr = [
         Чтобы понять, что ягоды ядовитые, нужно их надкусить, и если чувствуется Berry Juice - это яд. 
         Ягоды этого же цвета всегда будут ядовитыми в этом раунде.
         <br><br>
-        Также пиявки по идеи должны давать это вещество.`,
+        Также (вроде как) можно передробить пиявок, чтобы получить это вещество.`,
     },
     {
         key: "_purpura", name: "Purpura", color: "#bf55fc", categories: ["basic"],
-        desc: `Добывается из фиолетового цветка Кардуус (Carduus petal)`,
+        desc: `Добывается из фиолетового цветка Кардуус (Carduus petal).`,
     },
     {
         key: "_vermis", name: "Vermis", color: "#63dd45", categories: ["basic"],
         desc: `Добывается из зелёной травы растения Абсинтиум (Absinthium leaf).`,
     },
-
     {
         key: "_umbra", name: "Umbra", color: "#9040af", categories: ["basic"],
-        desc: `Добывается из зелёной травы растения Абсинтиум (Absinthium leaf).`,
+        desc: `Добывается из Теневых Грибов.`,
+    },
+    {
+        key: "_heal_potion", name: "Health Potion", color: "#ff1616", categories: ["support"],
+        desc: `Зелье лечения.`,
+        recipe: new Map([
+            ["_rubrum", 1],
+            ["_berry_poison", 1]
+        ]),
+        recipeResult: 2
+    },
+    {
+        key: "_master_heal_potion", name: "Master Health Potion", color: "#ff3583", categories: ["support"],
+        desc: `Зелье лечения высшей пробы (мастерское).`,
+        recipe: new Map([
+            ["_heal_potion", 1],
+            ["_aurum", 1]
+        ]),
+        recipeResult: 1
+    },
+    {
+        key: "_mana_potion", name: "Mana Potion", color: "#221fff", categories: ["support"],
+        desc: `Зелье маны.`,
+        recipe: new Map([
+            ["_purpura", 1],
+            ["_berry_poison", 1]
+        ]),
+        recipeResult: 2
+    },
+    {
+        key: "_master_mana_potion", name: "Master Mana Potion", color: "#7d46ff", categories: ["support"],
+        desc: `Зелье маны высшей пробы (мастерское).`,
+        recipe: new Map([
+            ["_mana_potion", 1],
+            ["_aurum", 1]
+        ]),
+        recipeResult: 1
     },
 ];
 
