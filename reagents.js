@@ -71,6 +71,14 @@ var reagentsArr = [
     },
     */
     {
+        key: "_water", name: "Water", color: "#dadada", categories: ["basic"],
+        desc: `Обычная вода.`,
+    },
+    {
+        key: "_blood", name: "Blood", color: "#8f2727", categories: ["basic"],
+        desc: `Обычная кровь, которую можно заполучить с помощью шприца.`,
+    },
+    {
         key: "_aurum", name: "Aurum", color: "#d9ff32", categories: ["basic"],
         desc: `Получается из цветов Кальты (Calta petal).
         Для того, чтобы дробить Кальту, нужен опытный навык алхимии.`,
@@ -138,6 +146,53 @@ var reagentsArr = [
             ["_aurum", 1]
         ]),
         recipeResult: 1
+    },
+    {
+        key: "_stamina_potion", name: "Stamina Potion", color: "#2d9c01", categories: ["support"],
+        desc: `Зелье маны.`,
+        recipe: new Map([
+            ["_viridis", 1],
+            ["_berry_poison", 1]
+        ]),
+        recipeResult: 2
+    },
+    {
+        key: "_master_stamina_potion", name: "Master Stamina Potion", color: "#4cbe1e", categories: ["support"],
+        desc: `Зелье выносливости высшей пробы (мастерское).`,
+        recipe: new Map([
+            ["_stamina_potion", 1],
+            ["_aurum", 1]
+        ]),
+        recipeResult: 1
+    },
+    {
+        key: "_aphrodisiac", name: "Aphrodisiac", color: "#ff41f6", categories: ["misc"],
+        desc: `Афродизиак - отвар действующий как средство пробуждающее возбуждение и похоть.`,
+        recipe: new Map([
+            ["_rubrum", 1],
+            ["_aurum", 1],
+            ["_water", 1],
+        ]),
+        recipeResult: 3
+    },
+    {
+        key: "_purified_blood", name: "Purified Blood", color: "#64283f", categories: ["support"],
+        desc: `Очищенная кровь - это отвар на основе крови, 
+        который временно повышает имунитет и защищает от прогрессирования/возникнокения заболеваний.`,
+        recipe: new Map([
+            ["_aurum", 1],
+            ["_blood", 1],
+        ]),
+        recipeResult: 2
+    },
+    {
+        key: "_calta_posion", name: "Calta Poison", color: "#fffc2e", categories: ["poison", "support"],
+        desc: `Яд кальты - сильная отрава, которая в небольших дозах (1-2 ед) способна лечить чуму.`,
+        recipe: new Map([
+            ["_aurum", 1],
+            ["_berry_poison", 1],
+        ]),
+        recipeResult: 2
     },
 ];
 
