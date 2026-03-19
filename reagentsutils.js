@@ -52,7 +52,7 @@ function getHtmlEntryForReagent(reagent) {
 }
 
 function getLabelForReagentKey(reagentKey) {
-    var reagent = reagentsMap.get(reagentKey);
+    var reagent = safeReagentsMapGet(reagentKey);
     return `<a href="./reagent?r=${reagent.key}">
         <b style="color: ${reagent.color}">${reagent.name}</b>
     </a>`;
@@ -81,7 +81,7 @@ function getCategoriesAsIngameText(categories) {
                     if(!firstReagent) {
                         textoutput += ` + `;
                     }
-                    textoutput += `${recipe_part} ${reagentsMap.get(recipe_rkey).name}`;
+                    textoutput += `${recipe_part} ${safeReagentsMapGet(recipe_rkey).name}`;
                     firstReagent = false;
                 });
                 textoutput += `\n`;
