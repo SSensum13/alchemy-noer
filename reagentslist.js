@@ -1,59 +1,3 @@
-function getHtmlEntryForReagent(reagent) {
-    if(reagent.recipe === undefined || reagent.recipe === null) {
-        return `
-        <div class="entry">
-            <div class="entry-name">
-                <b style="color: ${reagent.color}">${reagent.name}</b>
-            </div>
-            <div class="entry-desc-only">
-                ${reagent.desc}
-            </div>
-        </div>
-        `;
-    } else {
-        var recipeText = "";
-        reagentsMap.forEach
-        reagent.recipe.forEach((v, r) => {
-            if(recipeText != "") {
-                recipeText += " + ";
-            }
-            recipeText += `${v} ${getLabelForReagentKey(r)}`;
-        });
-
-        recipeText += ` = ${reagent.recipeResult} <b style="color: ${reagent.color}">${reagent.name}</b>`;
-
-        return `
-        <div class="entry">
-            <div class="entry-name">
-                <b style="color: ${reagent.color}">${reagent.name}</b>
-            </div>
-            <div class="entry-desc">
-                ${reagent.desc}
-            </div>
-            <div class="entry-recipe">
-                ${recipeText}
-            </div>
-        </div>
-        `;
-    }
-}
-
-function getLabelForReagentKey(reagentKey) {
-    var reagent = reagentsMap.get(reagentKey);
-    return `<a href="./reagent?r=${reagent.key}">
-        <b style="color: ${reagent.color}">${reagent.name}</b>
-    </a>`;
-}
-
-function getReagentsByCategory(reagentCategory) {
-    return reagentsArr.filter((r) => {
-        if(r.categories.find((c) => c == reagentCategory)) {
-            return true;
-        }
-        return false;
-    });
-}
-
 /*
 # СПИСОК РЕАГЕНТОВ
 */
@@ -112,70 +56,6 @@ var reagentsArr = [
         desc: `Добывается из Теневых Грибов.`,
     },
     {
-        key: "_heal_potion", name: "Health Potion", color: "#ff1616", categories: ["support"],
-        desc: `Зелье лечения.`,
-        recipe: new Map([
-            ["_rubrum", 1],
-            ["_berry_poison", 1]
-        ]),
-        recipeResult: 2
-    },
-    {
-        key: "_master_heal_potion", name: "Master Health Potion", color: "#ff3583", categories: ["support"],
-        desc: `Зелье лечения высшей пробы (мастерское).`,
-        recipe: new Map([
-            ["_heal_potion", 1],
-            ["_aurum", 1]
-        ]),
-        recipeResult: 1
-    },
-    {
-        key: "_mana_potion", name: "Mana Potion", color: "#221fff", categories: ["support"],
-        desc: `Зелье маны.`,
-        recipe: new Map([
-            ["_purpura", 1],
-            ["_berry_poison", 1]
-        ]),
-        recipeResult: 2
-    },
-    {
-        key: "_master_mana_potion", name: "Master Mana Potion", color: "#7d46ff", categories: ["support"],
-        desc: `Зелье маны высшей пробы (мастерское).`,
-        recipe: new Map([
-            ["_mana_potion", 1],
-            ["_aurum", 1]
-        ]),
-        recipeResult: 1
-    },
-    {
-        key: "_stamina_potion", name: "Stamina Potion", color: "#2d9c01", categories: ["support"],
-        desc: `Зелье маны.`,
-        recipe: new Map([
-            ["_viridis", 1],
-            ["_berry_poison", 1]
-        ]),
-        recipeResult: 2
-    },
-    {
-        key: "_master_stamina_potion", name: "Master Stamina Potion", color: "#4cbe1e", categories: ["support"],
-        desc: `Зелье выносливости высшей пробы (мастерское).`,
-        recipe: new Map([
-            ["_stamina_potion", 1],
-            ["_aurum", 1]
-        ]),
-        recipeResult: 1
-    },
-    {
-        key: "_aphrodisiac", name: "Aphrodisiac", color: "#ff41f6", categories: ["misc"],
-        desc: `Афродизиак - отвар действующий как средство пробуждающее возбуждение и похоть.`,
-        recipe: new Map([
-            ["_rubrum", 1],
-            ["_aurum", 1],
-            ["_water", 1],
-        ]),
-        recipeResult: 3
-    },
-    {
         key: "_purified_blood", name: "Purified Blood", color: "#64283f", categories: ["support"],
         desc: `Очищенная кровь - это отвар на основе крови, 
         который временно повышает имунитет и защищает от прогрессирования/возникнокения заболеваний.`,
@@ -193,6 +73,70 @@ var reagentsArr = [
             ["_berry_poison", 1],
         ]),
         recipeResult: 2
+    },
+    {
+        key: "_heal_potion", name: "Health Potion", color: "#ff1616", categories: ["support"],
+        desc: `Зелье лечения.`,
+        recipe: new Map([
+            ["_rubrum", 1],
+            ["_berry_poison", 1]
+        ]),
+        recipeResult: 2
+    },
+    {
+        key: "_master_heal_potion", name: "Master Health Potion", color: "#ff3583", categories: ["support"],
+        desc: `Зелье лечения высшей пробы (мастерское).`,
+        recipe: new Map([
+            ["_heal_potion", 1],
+            ["_aurum", 1]
+        ]),
+        recipeResult: 2
+    },
+    {
+        key: "_mana_potion", name: "Mana Potion", color: "#221fff", categories: ["support"],
+        desc: `Зелье маны.`,
+        recipe: new Map([
+            ["_purpura", 1],
+            ["_berry_poison", 1]
+        ]),
+        recipeResult: 2
+    },
+    {
+        key: "_master_mana_potion", name: "Master Mana Potion", color: "#7d46ff", categories: ["support"],
+        desc: `Зелье маны высшей пробы (мастерское).`,
+        recipe: new Map([
+            ["_mana_potion", 1],
+            ["_aurum", 1]
+        ]),
+        recipeResult: 2
+    },
+    {
+        key: "_stamina_potion", name: "Stamina Potion", color: "#2d9c01", categories: ["support"],
+        desc: `Зелье маны.`,
+        recipe: new Map([
+            ["_viridis", 1],
+            ["_berry_poison", 1]
+        ]),
+        recipeResult: 2
+    },
+    {
+        key: "_master_stamina_potion", name: "Master Stamina Potion", color: "#4cbe1e", categories: ["support"],
+        desc: `Зелье выносливости высшей пробы (мастерское).`,
+        recipe: new Map([
+            ["_stamina_potion", 1],
+            ["_aurum", 1]
+        ]),
+        recipeResult: 2
+    },
+    {
+        key: "_aphrodisiac", name: "Aphrodisiac", color: "#ff41f6", categories: ["misc"],
+        desc: `Афродизиак - отвар действующий как средство пробуждающее возбуждение и похоть.`,
+        recipe: new Map([
+            ["_rubrum", 1],
+            ["_aurum", 1],
+            ["_water", 1],
+        ]),
+        recipeResult: 3
     },
 ];
 

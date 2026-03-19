@@ -1,29 +1,70 @@
 @font-face {
   font-family: "fancyfont";
   src: url("font.ttf");
-  
 }
 
 body {
-    font-size: 23px;
-    font-weight: 550;
-    background-color: #111111;
-    color: #ffffff;
-    text-shadow: 1px 2px 5px #000000;
     font-family: "fancyfont", serif;
+    font-size: larger;
+    font-style: italic;
+    font-weight: 550;
+    color: #ffffff;
+
+    background-color: #111111;
+    text-shadow: 1px 2px 5px #000000;
     min-height: 80vh;
+}
+
+dialog {
+    font-family: "fancyfont", serif;
+    font-size: larger;
+    font-style: italic;
+    font-weight: 550;
+    color: #ffffff;
+
+    background-color: #111111;
+    text-shadow: 1px 2px 5px #000000;
+}
+
+button {
+    font-family: "fancyfont", serif;
+    font-size: large;
+    font-style: italic;
+    font-weight: 550;
+    color: #ffffff;
+    background-color: rgba(255, 255, 255, 0);
+    border: 1px solid;
+    padding: 5px;
+    border-radius: 10px;
 }
 
 a {
     text-decoration: none;
+    color: #7a5cff;
 }
 
 .upperframe {
     text-align: center;
     border-bottom: 2px solid #ffffff;
     width: 100%;
-    padding: 30px;
     background: linear-gradient(to top, #8b000073, #00000000);
+}
+
+.infoframe {
+    display: flex;
+    padding: 30px;
+    width: 90%;
+    justify-content: center;
+}
+#infoframe-contentlist {
+    text-align: center;
+    width: 100%;
+    border-right: 1px solid #ffffff;
+}
+#infoframe-helpful {
+    text-align: center;
+    width: 100%;
+    border-left: 1px solid #ffffff;
 }
 
 .mframe {
@@ -31,38 +72,31 @@ a {
     justify-self: center;
     width: 90%;
 }
-
 .entry {
     display: flex;
     background: linear-gradient(to top, #8b000073, #00000000);
     width: 100%;
     min-height: 100px;
     text-align: center;
-    justify-items: stretch;
     justify-content: space-around;
 }
-
-
 .entry-name {
     width: 20%;
     padding: 10px;
     align-content: center;
 }
-
 .entry-desc-only {
     width: 80%;
     padding: 10px;
     border-left: 2px solid #ffffff;
     align-content: center;
 }
-
 .entry-desc {
     width: 50%;
     padding: 10px;
     border-left: 2px solid #ffffff;
     align-content: center;
 }
-
 .entry-recipe{
     width: 30%;
     padding: 10px;

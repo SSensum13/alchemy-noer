@@ -7,13 +7,33 @@
     <link rel="stylesheet" href="./style.css"/>
 </head>
 <script src="./cookies.js"></script>
-<script src="./reagents.js"></script>
+<script src="./reagentslist.js"></script>
+<script src="./reagentsutils.js"></script>
 <body>
     <div class="upperframe">
+        &nbsp;
         <h2> Мини-вики и инструментарий для работы с алхимией на Ноэре </h2>
+    </div>
+    <div class="infoframe">
+        <div id="infoframe-contentlist">
+            
+        </div>
+        <div id="infoframe-helpful">
+            <h2>Полезное</h2>
+            Конвертировать в текст для записи в книгу/листок/папирус: 
+            <button command="show-modal" commandfor="text-to-paste-dialog">жми сюда</button><br>
+            ...
+        </div>
     </div>
     <div class="mframe" id="mframe">
     </div>
+
+    <dialog id="text-to-paste-dialog" style="text-align: center;">
+        <textarea name="text-to-paste" id="text-to-paste" cols="50" rows="20"></textarea>
+        <div>
+            <button commandfor="text-to-paste-dialog" command="close">Закрыть</button>
+        </div>
+    </dialog>
 </body>
 <script src="./mainpage.js"></script>
 </html>
