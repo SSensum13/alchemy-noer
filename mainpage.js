@@ -22,5 +22,8 @@ getReagentsByCategory("misc").forEach((r) => {
 })
 
 var textarea = document.getElementById("text-to-paste");
-
-textarea.value = getReagentsAsIngameText(["support"]);
+textarea.value = getCategoriesAsIngameText(new Map([
+            ["basic", "Базовые"],
+            ["support", "Полезные"],
+            ["misc", "Прочее"]
+        ]));

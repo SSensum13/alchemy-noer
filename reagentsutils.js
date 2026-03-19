@@ -1,3 +1,16 @@
+// SIMT = Spaces In Miltiline Text
+function fixSIMT(text) {
+    var lines = text.split("\n");
+    var textoutput = "";
+    lines.forEach((str) => {
+        if(textoutput != "") {
+            textoutput += "\n";
+        }
+        textoutput += str.trim();
+    });
+    return textoutput;
+}
+
 function getHtmlEntryForReagent(reagent) {
     if(reagent.recipe === undefined || reagent.recipe === null) {
         return `
@@ -6,7 +19,7 @@ function getHtmlEntryForReagent(reagent) {
                 <b style="color: ${reagent.color}">${reagent.name}</b>
             </div>
             <div class="entry-desc-only">
-                ${reagent.desc}
+                ${reagent.desc.replaceAll("\n", "<br>")}
             </div>
         </div>
         `;
@@ -28,7 +41,7 @@ function getHtmlEntryForReagent(reagent) {
                 <b style="color: ${reagent.color}">${reagent.name}</b>
             </div>
             <div class="entry-desc">
-                ${reagent.desc}
+                ${reagent.desc.replaceAll("\n", "<br>")}
             </div>
             <div class="entry-recipe">
                 ${recipeText}
@@ -54,13 +67,13 @@ function getReagentsByCategory(reagentCategory) {
     });
 }
 
-function getReagentsAsIngameText(categoryNames) {
+function getCategoriesAsIngameText(categories) {
     var textoutput = "";
-    categoryNames.forEach((category) => {
-        var reagents = getReagentsByCategory(category)
-        textoutput += `# ${category}\n`;
+    categories.forEach((category_display_name, category_key) => {
+        var reagents = getReagentsByCategory(category_key)
+        textoutput += `# ${category_display_name}\n`;
         reagents.forEach((r) => {
-            textoutput += `**${r.name}**: ${r.desc}\n`;
+            textoutput += `**${r.name}**: ${fixSIMT(r.desc)}\n`;
             if(r.recipe !== undefined && r.recipe !== null) {
                 textoutput += `Рецепт: `;
                 var firstReagent = true;
