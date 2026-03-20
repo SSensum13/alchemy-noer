@@ -11,6 +11,16 @@ function fixSIMT(text) {
     return textoutput;
 }
 
+// Выдаёт описание для вики, в том числе и ООЦ запись
+function getReagentDescForWiki(reagent) {
+    var output = "";
+    output += reagent.desc.replaceAll("\n", "<br>");
+    if(reagent.oocDesc !== null && reagent.oocDesc !== undefined) {
+        output += `<br><i>OOC дополнение: ${reagent.oocDesc}</i>`;
+    }
+    return output
+}
+
 function getHtmlEntryForReagent(reagent) {
     if(reagent.recipe === undefined || reagent.recipe === null) {
         return `
@@ -19,7 +29,7 @@ function getHtmlEntryForReagent(reagent) {
                 <b style="color: ${reagent.color}">${reagent.name}</b>
             </div>
             <div class="entry-desc-only">
-                ${reagent.desc.replaceAll("\n", "<br>")}
+                ${getReagentDescForWiki(reagent)}
             </div>
         </div>
         `;
@@ -41,7 +51,7 @@ function getHtmlEntryForReagent(reagent) {
                 <b style="color: ${reagent.color}">${reagent.name}</b>
             </div>
             <div class="entry-desc">
-                ${reagent.desc.replaceAll("\n", "<br>")}
+                ${getReagentDescForWiki(reagent)}
             </div>
             <div class="entry-recipe">
                 ${recipeText}
@@ -71,7 +81,7 @@ function getCategoriesAsIngameText(categories) {
     var textoutput = "";
     categories.forEach((category_display_name, category_key) => {
         var reagents = getReagentsByCategory(category_key)
-        textoutput += `# ${category_display_name}\n`;
+        textoutput += `\n# ${category_display_name}\n\n`;
         reagents.forEach((r) => {
             textoutput += `**${r.name}**: ${fixSIMT(r.desc)}\n`;
             if(r.recipe !== undefined && r.recipe !== null) {
