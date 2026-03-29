@@ -61,6 +61,10 @@ var reagentsArr = [
         desc: `Добывается из Теневых Грибов.`,
     },
     {
+        key: "_boiled_umbra", name: "Boiled Umbra", color: "#ac55ce", categories: ["basic"],
+        desc: `Настойка Umbra, которая была отварена в котелке или чайнике.`,
+    },
+    {
         key: "_viscera_cordis", name: "Viscera Cordis", color: "#693636", categories: ["basic"],
         desc: `Дроблённое в ступке сердце.`,
     },
@@ -195,7 +199,7 @@ var reagentsArr = [
         key: "_sleep_toxin", name: "Снотворное", color: "#966acf", categories: ["misc"],
         desc: `Весьма эффективное снотворное.`,
         recipe: new Map([
-            ["_umbra", 5],
+            ["_boiled_umbra", 5],
             ["_water", 5]
         ]),
         recipeResult: 10
