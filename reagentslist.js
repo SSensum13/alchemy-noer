@@ -103,9 +103,9 @@ var reagentsArr = [
     },
     {
         key: "_antidote", name: "Antidote", color: "#85ad51", categories: ["support"],
-        desc: `Антидот, помогающие от ядов и отравлений.`,
+        desc: `Антидот, помогающие от ядов, отравлений и (возможно) паразитов.`,
         recipe: new Map([
-            ["_viridis", 5],
+            ["_vermis", 5],
             ["_berry_poison", 5]
         ]),
         recipeResult: 10
@@ -148,7 +148,7 @@ var reagentsArr = [
     },
     {
         key: "_stamina_potion", name: "Stamina Potion", color: "#2d9c01", categories: ["support"],
-        desc: `Зелье маны.`,
+        desc: `Зелье выносливости.`,
         recipe: new Map([
             ["_viridis", 5],
             ["_berry_poison", 5]
@@ -185,15 +185,6 @@ var reagentsArr = [
             ["_water", 5]
         ]),
         recipeResult: 15
-    },
-    {
-        key: "_bug_repellent", name: "Bug Repellent", color: "#8afa3f", categories: ["misc"],
-        desc: `Репеллент от насекомых.`,
-        recipe: new Map([
-            ["_vermis", 5],
-            ["_berry_poison", 5]
-        ]),
-        recipeResult: 10
     },
     {
         key: "_sleep_toxin", name: "Снотворное", color: "#966acf", categories: ["misc"],
