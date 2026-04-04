@@ -68,6 +68,16 @@ var reagentsArr = [
         key: "_viscera_cordis", name: "Viscera Cordis", color: "#693636", categories: ["basic"],
         desc: `Дроблённое в ступке сердце.`,
     },
+    {
+        key: "_aperitif", name: "Aperitif", color: "#693636", categories: ["basic"],
+        desc: `Вещество, которое требуется для синтеза высшего антидота. Действие на организм не изучено.`,
+        recipe: new Map([
+            ["_vermis", 5],
+            ["_water", 5],
+            ["_aurum", 5]
+        ]),
+        recipeResult: 15
+    },
     /*
     # Лекарства и полезности
     */
@@ -103,10 +113,19 @@ var reagentsArr = [
     },
     {
         key: "_antidote", name: "Antidote", color: "#85ad51", categories: ["support"],
-        desc: `Антидот, помогающие от ядов, отравлений и (возможно) паразитов.`,
+        desc: `Антидот, помогающие от ядов и отравлений.`,
         recipe: new Map([
             ["_vermis", 5],
             ["_berry_poison", 5]
+        ]),
+        recipeResult: 10
+    },
+    {
+        key: "_master_antidote", name: "Antidote", color: "#679146", categories: ["support"],
+        desc: `Улучшенная версия антидота.`,
+        recipe: new Map([
+            ["_antidote", 5],
+            ["_aperitif", 5]
         ]),
         recipeResult: 10
     },
