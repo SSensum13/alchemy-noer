@@ -36,6 +36,10 @@ var reagentsArr = [
         desc: `Добывается из красного цветка Параверус (Paraverus petal).`,
     },
     {
+        key: "_boiled_rubrum", name: "Boiled Rubrum", color: "#e65555", categories: [],
+        desc: `Настойка Rubrum, которая была отварена в котелке или чайнике.`,
+    },
+    {
         key: "_viridis", name: "Viridis", color: "#80d149", categories: ["basic"],
         desc: `Добывается из цветка листьев Уртики (Urtica leaf).`,
     },
@@ -130,7 +134,7 @@ var reagentsArr = [
         recipeResult: 10
     },
     {
-        key: "_heal_potion", name: "Health Potion", color: "#ff1616", categories: ["support"],
+        key: "_health_potion", name: "Health Potion", color: "#ff1616", categories: ["support"],
         desc: `Зелье лечения.`,
         recipe: new Map([
             ["_rubrum", 5],
@@ -139,16 +143,16 @@ var reagentsArr = [
         recipeResult: 10
     },
     {
-        key: "_master_heal_potion", name: "Master Health Potion", color: "#ff3583", categories: ["support"],
+        key: "_master_health_potion", name: "Master Health Potion", color: "#ff3583", categories: ["support"],
         desc: `Высшее (мастерское) зелье лечения высшей пробы.`,
         recipe: new Map([
-            ["_heal_potion", 5],
+            ["_health_potion", 5],
             ["_aurum", 5]
         ]),
         recipeResult: 10
     },
     {
-        key: "_mana_potion", name: "Mana Potion", color: "#221fff", categories: ["support"],
+        key: "_manna_potion", name: "Manna Potion", color: "#221fff", categories: ["support"],
         desc: `Зелье маны.`,
         recipe: new Map([
             ["_purpura", 5],
@@ -157,10 +161,10 @@ var reagentsArr = [
         recipeResult: 10
     },
     {
-        key: "_master_mana_potion", name: "Master Mana Potion", color: "#7d46ff", categories: ["support"],
+        key: "_master_manna_potion", name: "Master Manna Potion", color: "#7d46ff", categories: ["support"],
         desc: `Высшее (мастерское) зелье маны.`,
         recipe: new Map([
-            ["_mana_potion", 5],
+            ["_manna_potion", 5],
             ["_aurum", 5]
         ]),
         recipeResult: 10
@@ -204,6 +208,19 @@ var reagentsArr = [
             ["_water", 5]
         ]),
         recipeResult: 15
+    },
+    {
+        key: "_youth_potion", name: "Youth Potion", color: "#eaf279", categories: ["misc"],
+        desc: `Великое зелье, которое омолаживает того, кто его выпьет.`,
+        recipe: new Map([
+            ["_master_health_potion", 5],
+            ["_master_stamina_potion", 5],
+            ["_master_manna_potion", 5],
+            ["_master_antidote", 5],
+            ["_boiled_rubrum", 5],
+            ["_boiled_aurum", 5],
+        ]),
+        recipeResult: 5
     },
     {
         key: "_sleep_toxin", name: "Снотворное", color: "#966acf", categories: ["misc"],
