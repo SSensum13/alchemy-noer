@@ -125,7 +125,7 @@ var reagentsArr = [
         recipeResult: 10
     },
     {
-        key: "_master_antidote", name: "Antidote", color: "#679146", categories: ["support"],
+        key: "_master_antidote", name: "Master Antidote", color: "#679146", categories: ["support"],
         desc: `Улучшенная версия антидота.`,
         recipe: new Map([
             ["_antidote", 5],
